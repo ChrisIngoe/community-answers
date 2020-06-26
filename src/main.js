@@ -26,11 +26,19 @@ import IoT from '@/components/IoT';
 import moment from 'moment';
 Vue.prototype.moment = moment;
 
-// Import the Auth0 configuration
-import { domain, clientId, audience } from '../auth_config.json';
-
 // Import the plugin here
 import { Auth0Plugin } from './auth';
+
+//require('dotenv').config();
+
+const domain = process.env.AUTH0_DOMAIN;
+const audience = process.env.AUTH0_AUDIENCE;
+const clientId = process.env.AUTH0_CLIENT_ID;
+const googleMapsKey = process.env.GOOGLE_MAPS_KEY;
+const apiUrl = process.env.API_URL;
+const cognitoIdentityPoolId = process.env.COGNITO_IDENTITY_POOL_ID;
+const iotEndpoint = process.env.IOT_ENDPOINT;
+const region = process.env.REGION;
 
 // Realtime websocket notifications
 Vue.component('iot', IoT);
@@ -44,19 +52,19 @@ Vue.component('iot', IoT);
 Vue.config.productionTip = false;
 Vue.prototype.$appName = 'Ask Around Me';
 // Google Maps key - see https://developers.google.com/maps/documentation/javascript/get-api-key
-Vue.prototype.$GoogleMapsKey = '';
+Vue.prototype.$GoogleMapsKey = googleMapsKey;
 
 // API Gateway endpoint - e.g. https://abc123abc.execute-api.us-east-1.amazonaws.com
-Vue.prototype.$APIurl = '';
+Vue.prototype.$APIurl = apiUrl;
 
 // ** Websocket connection **
 
 //  PoolId: Retrieve this with the CLI command: aws cognito-identity list-identity-pools --max-results 10
-(Vue.prototype.$poolId = ''), // 'YourCognitoIdentityPoolId'
+(Vue.prototype.$poolId = cognitoIdentityPoolId), // 'YourCognitoIdentityPoolId'
   //  IoTendpoint: Retrieve this with the CLI command: aws iot describe-endpoint --endpoint-type iot:Data-ATS
-  (Vue.prototype.$host = ''), // 'YourAwsIoTEndpoint', e.g. 'prefix.iot.us-east-1.amazonaws.com'
+  (Vue.prototype.$host = iotEndpoint), // 'YourAwsIoTEndpoint', e.g. 'prefix.iot.us-east-1.amazonaws.com'
   //  This is the region you selected in the SAM template deployment.
-  (Vue.prototype.$region = ''); // Your region
+  (Vue.prototype.$region = region); // Your region
 
 /* ===================================================
                     END CONFIGURATION

@@ -1,8 +1,4 @@
 export const HOME = '/';
-export const HOME1 = '';
-export const HOME2 = '/';
-export const HOME3 = '/:id';
-export const HOME4 = '/:code';
 export const QUESTION = '/question/';
 export const ANSWER = '/answer/';
 export const ANSWER_WITH_ANSWERID = '/answer/:answerid';

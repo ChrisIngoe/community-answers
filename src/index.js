@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Auth0Provider } from './contexts/auth0-context';
@@ -9,11 +8,11 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <Auth0Provider>
+    <Auth0Provider>
+      <Router>
         <App />
-      </Auth0Provider>
-    </Router>
+      </Router>
+    </Auth0Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

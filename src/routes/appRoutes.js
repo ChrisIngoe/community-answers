@@ -11,7 +11,6 @@ import Home from '../pages/home';
 const AppRoutes = () => {
   return (
     <Switch>
-      <Route path={'/login'} component={Home} />
       <Route exact path={routes.HOME} component={Home} />
       <PrivateRoute path={routes.QUESTION} component={Question} />
       <PrivateRoute exact path={routes.ANSWER} component={Answer} />

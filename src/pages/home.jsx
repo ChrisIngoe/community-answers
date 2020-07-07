@@ -3,7 +3,7 @@ import '../App.css';
 import { useAuth0 } from '../contexts/auth0-context';
 
 const Home = () => {
-  const { isLoading, user, loginWithRedirect, logout } = useAuth0();
+  const { isLoading, user } = useAuth0();
   return (
     <>
       <div className="App">

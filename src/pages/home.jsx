@@ -8,22 +8,17 @@ const Home = () => {
     <>
       <div className="App">
         <header className="App-header">
+          <h1>Community Answers</h1>
           {!isLoading && !user && (
             <>
-              <h1>Public Page</h1>
+              <p>Welcome! To use the application you need to be signed up and logged in. Please contact your administrator to join.</p>
             </>
           )}
           {!isLoading && user && (
             <>
-              <h1>You are logged in!</h1>
-              <p>Hello {user.name}</p>
+              <p>Welcome {user.name}</p>
 
               {user.picture && <img src={user.picture} alt="My Avatar" />}
-              <hr />
-
-              <button onClick={() => logout({ returnTo: window.location.origin })} className="button is-small is-dark">
-                Logout
-              </button>
             </>
           )}
         </header>
